@@ -1,0 +1,20 @@
+---
+services:
+  code-server:
+    image: crvdevenv:v1
+    #image: lscr.io/linuxserver/code-server:latest
+    container_name: code-server
+    environment:
+      - PUID=1002
+      - PGID=1002
+      - TZ=Etc/GMT+6
+      - DEFAULT_WORKSPACE=/opt/app/static
+      - SUDO_PASSWORD=throwaway
+    volumes:
+      - /home/colin/coder-stuff/config:/config
+      - type: bind
+        source: /home/colin/github
+        target: /opt/app/static
+    ports:
+      - 8443:8443
+    restart: unless-stopped

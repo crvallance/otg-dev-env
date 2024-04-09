@@ -1,0 +1,14 @@
+[Match]
+Name=usb0
+[Address]
+Address=169.254.10.37/24
+Scope=link
+[Network]
+DHCPServer=yes
+LinkLocalAddressing=no
+IPv6AcceptRA=no
+[DHCPServer]
+EmitRouter=no
+PoolSize=10
+PoolOffset=100
+

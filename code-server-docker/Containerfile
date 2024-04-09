@@ -1,0 +1,4 @@
+FROM lscr.io/linuxserver/code-server:latest
+RUN apt update && \
+    apt upgrade --assume-yes && \
+    DEBIAN_FRONTEND=noninteractive apt install python3 python3-venv python3-dev --assume-yes
