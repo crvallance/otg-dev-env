@@ -15,16 +15,16 @@ This works fine on the the Zero 3E at minimum, I will try out the 3W once I get 
    3. Enable `radxa-usbnet@fcc00000.dwc3`
    4. Create a new user with `adduser`
 4. Install general stuff I want
-   1. `sudo apt install python3 python3-venv pipx git`
-5. Clone this repo
+   1. `sudo apt install python3 python3-venv pipx git sudo`
+5. Add my user to /etc/sudoers
+6. Clone this repo
    1. `git clone https://github.com/crvallance/otg-dev-env`
-6. Copy the network config file
-   1. `sudo cp /network/usb0.network /etc/systemd/network/usb0.network`
-7. Use pipx to install ansible
+7. Copy the network config file and turn on networkd
+   1. `sudo cp ./network/usb0.network /etc/systemd/network/usb0.network`
+   2. `sudo systemctl enable systemd-networkd && sudo systemctl start systemd-networkd`
+8. Use pipx to install ansible
    1. `pipx install --include-deps ansible`
-8. [Install docker](https://docs.docker.com/engine/install/debian/#install-using-the-repository) and do [post-install steps](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user) for your user.
-9. Install docker compose
-   1. `sudo apt install docker-compose`
+9. [Install docker](https://docs.docker.com/engine/install/debian/#install-using-the-repository) and do [post-install steps](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user) for your user.
 10. Adjust the desired packages in the [Containerfile](/code-server-docker/Containerfile) and build an image
     1. `docker build -t crvdevenv:v1 -f Containerfile .`
 11. Adjust any of the items in the compose file as needed
