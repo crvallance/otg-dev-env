@@ -37,3 +37,4 @@ This works fine on the the Zero 3E at minimum, I will try out the 3W once I get 
        1. This holds the config for code-server
     6. bind mount
        1. This lets me bind a local folder in to the container for the default workspace
+12. Bring up code server with `docker compose up -d`
